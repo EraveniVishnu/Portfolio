@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eraveni Vishnu | Pirate Coder Portfolio ⚓</title>
+    <meta name="description"
+        content="Portfolio of Eraveni Vishnu - A B.Tech CSE student and full-stack developer on a grand coding adventure. Pirate-themed anime portfolio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <!-- Particle Canvas for floating treasure particles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Custom Pirate Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-trail" id="cursorTrail"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <span class="skull-icon">☠️</span>
+            <span class="logo-text">VISHNU</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active" data-section="home">🏴‍☠️ Home</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">⚓ About</a></li>
+            <li><a href="#skills" class="nav-link" data-section="skills">⚔️ Skills</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">🗺️ Projects</a></li>
+            <li><a href="#certifications" class="nav-link" data-section="certifications">🏆 Bounties</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">📜 Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-waves">
+            <svg class="wave wave1" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="rgba(255,200,50,0.15)"
+                    d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,149.3C960,128,1056,128,1152,149.3C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+            <svg class="wave wave2" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="rgba(255,100,50,0.1)"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle animate-on-scroll">— Welcome Aboard, Nakama! —</p>
+                <h1 class="hero-title animate-on-scroll">
+                    <span class="line1">I'm <span class="highlight-name">Vishnu</span></span>
+                    <span class="line2">Code Pirate & </span>
+                    <span class="line3 typewriter" id="typewriter"></span>
+                </h1>
+                <p class="hero-description animate-on-scroll">
+                    Setting sail on the Grand Line of Technology! A B.Tech CSE student charting new territories
+                    in Full-Stack Development, Data Science & Machine Learning. Every bug fixed is a treasure found!
+                    🏴‍☠️
+                </p>
+                <div class="hero-buttons animate-on-scroll">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>🗺️ View My Treasures</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>📜 Send a Message</span>
+                    </a>
+                </div>
+                <div class="hero-stats animate-on-scroll">
+                    <div class="stat">
+                        <span class="stat-number" data-count="150">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">LeetCode Problems</span>
+                    </div>
+                    <div class="stat-divider">⚔️</div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="8">0</span><span class="stat-decimal">.71</span>
+                        <span class="stat-label">CGPA</span>
+                    </div>
+                    <div class="stat-divider">⚔️</div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image animate-on-scroll">
+                <div class="hero-image-glow"></div>
+                <div class="hero-image-frame">
+                    <img src="pirate_hero.png" alt="Vishnu - Pirate Coder" loading="eager">
+                </div>
+                <div class="floating-badge badge-1">⚓ Full-Stack</div>
+                <div class="floating-badge badge-2">🐍 Python</div>
+                <div class="floating-badge badge-3">☕ Java</div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Sail Down</span>
+        </a>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section about" id="about">
+        <div class="section-bg-decor"></div>
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">⚓ WHO AM I</span>
+                <h2 class="section-title">Captain's <span class="gradient-text">Log</span></h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-container animate-on-scroll">
+                    <div class="about-image-wrapper">
+                        <img src="pirate_ship_bg.png" alt="Pirate Ship Adventure" loading="lazy">
+                        <div class="about-image-overlay"></div>
+                    </div>
+                    <div class="about-card-float">
+                        <span class="card-icon">🎓</span>
+                        <div>
+                            <strong>BV Raju Institute of Technology</strong>
+                            <p>B.Tech CSE (Data Science)</p>
+                            <p>2023 - 2027 | CGPA: 8.71</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <h3 class="about-heading">Ahoy there, fellow adventurer! 🏴‍☠️</h3>
+                    <p>
+                        I'm <strong>Eraveni Vishnu</strong>, a passionate Computer Science student from Narsapur,
+                        Telangana,
+                        sailing through the vast ocean of technology. Like a true pirate of the digital seas,
+                        I'm on a quest to discover the greatest treasures in coding!
+                    </p>
+                    <p>
+                        My journey spans across the lands of <strong>Full-Stack Web Development</strong>,
+                        <strong>Machine Learning</strong>, and <strong>Data Science</strong>. I believe every line
+                        of code is a step closer to the One Piece of my dreams!
+                    </p>
+                    <p>
+                        When I'm not debugging or building projects, you can find me solving problems on LeetCode
+                        (150+ and counting!), crafting solutions on CodeChef, or exploring new technologies to add
+                        to my treasure chest of skills.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div><strong>Location</strong><span>Narsapur, Telangana</span></div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <div><strong>Email</strong><span>yadavvishnu0082@gmail.com</span></div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🎓</span>
+                            <div><strong>Degree</strong><span>B.Tech CSE (Data Science)</span></div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📊</span>
+                            <div><strong>CGPA</strong><span>8.71</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">⚔️ ARSENAL</span>
+                <h2 class="section-title">Pirate's <span class="gradient-text">Arsenal</span></h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Every great pirate needs their weapons. Here are the tools & technologies I
+                    wield!</p>
+            </div>
+
+            <div class="skills-categories">
+                <!-- Programming Languages -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">⚔️</div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                                alt="Java" class="skill-logo">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                alt="Python" class="skill-logo">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">🌊</div>
+                        <h3>Web Technologies</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                alt="HTML5" class="skill-logo">
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                                alt="CSS3" class="skill-logo">
+                            <span class="skill-name">CSS3</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                                alt="JavaScript" class="skill-logo">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                alt="React" class="skill-logo">
+                            <span class="skill-name">React.js</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                                alt="Node.js" class="skill-logo">
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                                alt="Express.js" class="skill-logo">
+                            <span class="skill-name">Express.js</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sql/sql.png"
+                                alt="SQL" class="skill-logo">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">💎</div>
+                        <h3>Databases</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                alt="MySQL" class="skill-logo">
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                                alt="PostgreSQL" class="skill-logo">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">🧭</div>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-tilt>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                alt="GitHub" class="skill-logo">
+                            <span class="skill-name">GitHub</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card" data-tilt>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+                                alt="Power BI" class="skill-logo">
+                            <span class="skill-name">Power BI</span>
+                            <div class="skill-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">🗺️ TREASURE MAP</span>
+                <h2 class="section-title">Grand Line <span class="gradient-text">Projects</span></h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Each project is an island I've conquered on my voyage through the Grand Line
+                    of code!</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: CodeArena -->
+                <div class="project-card animate-on-scroll" data-tilt>
+                    <div class="project-card-inner">
+                        <div class="project-number">01</div>
+                        <div class="project-island-badge">🏝️ Island 1</div>
+                        <div class="project-header">
+                            <div class="project-icon">⚔️</div>
+                            <h3 class="project-title">CodeArena</h3>
+                            <p class="project-tagline">Real-Time Collaborative Coding Platform</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-desc">
+                                A web-based platform where coders connect with random peers to solve
+                                coding challenges in real-time — inspired by Omegle meets LeetCode!
+                            </p>
+                            <ul class="project-features">
+                                <li>🔥 Real-time matching system for collaborative coding</li>
+                                <li>💬 Live chat functionality during problem-solving</li>
+                                <li>📊 Structured difficulty levels for challenges</li>
+                                <li>🔐 User authentication & session handling</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/EraveniVishnu" class="project-link" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Skin Cancer Detection -->
+                <div class="project-card animate-on-scroll" data-tilt>
+                    <div class="project-card-inner">
+                        <div class="project-number">02</div>
+                        <div class="project-island-badge">🏝️ Island 2</div>
+                        <div class="project-header">
+                            <div class="project-icon">🔬</div>
+                            <h3 class="project-title">Skin Cancer Detection</h3>
+                            <p class="project-tagline">Melanoma Classification Model</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-desc">
+                                A deep learning model that classifies melanoma vs non-melanoma skin lesions
+                                using advanced CNN architectures and synthetic data augmentation.
+                            </p>
+                            <ul class="project-features">
+                                <li>🧠 EfficientNet-B3 CNN architecture</li>
+                                <li>🎨 GAN-based synthetic image generation</li>
+                                <li>🎯 Focal loss for improved sensitivity</li>
+                                <li>📈 Advanced preprocessing & feature extraction</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">EfficientNet-B3</span>
+                            <span class="tech-tag">StyleGAN2-ADA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/EraveniVishnu" class="project-link" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Project 3: TAP -->
+                <div class="project-card animate-on-scroll" data-tilt>
+                    <div class="project-card-inner">
+                        <div class="project-number">03</div>
+                        <div class="project-island-badge">🏝️ Island 3</div>
+                        <div class="project-header">
+                            <div class="project-icon">📋</div>
+                            <h3 class="project-title">TAP</h3>
+                            <p class="project-tagline">Task and Progress Tracker Web App</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-desc">
+                                A productivity web application for managing daily and long-term tasks
+                                efficiently, featuring gamification elements and rich visualizations.
+                            </p>
+                            <ul class="project-features">
+                                <li>🎮 Gamification: streaks, points & badges</li>
+                                <li>📊 Performance visualization dashboards</li>
+                                <li>⚡ Real-time updates via React hooks</li>
+                                <li>📈 Weekly & monthly progress tracking</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tap-and-thrive-together.vercel.app/" class="project-link" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS & ACHIEVEMENTS SECTION ===== -->
+    <section class="section certifications" id="certifications">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">🏆 BOUNTIES</span>
+                <h2 class="section-title">Collected <span class="gradient-text">Bounties</span></h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="bounty-grid">
+                <!-- Certifications -->
+                <div class="bounty-column animate-on-scroll">
+                    <h3 class="bounty-category-title">📜 Certifications</h3>
+                    <div class="bounty-card">
+                        <div class="bounty-icon">🎓</div>
+                        <div class="bounty-info">
+                            <h4>Web Development Certification</h4>
+                            <p>IIT Kharagpur – KSHITIJ 2025</p>
+                        </div>
+                        <div class="bounty-amount">★★★</div>
+                    </div>
+                    <div class="bounty-card">
+                        <div class="bounty-icon">☁️</div>
+                        <div class="bounty-info">
+                            <h4>Salesforce Certified Agentforce Specialist</h4>
+                            <p>Salesforce – 2025</p>
+                        </div>
+                        <div class="bounty-amount">★★★</div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="bounty-column animate-on-scroll">
+                    <h3 class="bounty-category-title">⚔️ Achievements</h3>
+                    <div class="bounty-card">
+                        <div class="bounty-icon">💻</div>
+                        <div class="bounty-info">
+                            <h4>150+ Problems Solved</h4>
+                            <p>LeetCode</p>
+                        </div>
+                        <div class="bounty-amount">★★★</div>
+                    </div>
+                    <div class="bounty-card">
+                        <div class="bounty-icon">👨‍🍳</div>
+                        <div class="bounty-info">
+                            <h4>Max Rating 1380+ (1-Star)</h4>
+                            <p>CodeChef</p>
+                        </div>
+                        <div class="bounty-amount">★★</div>
+                    </div>
+                    <div class="bounty-card">
+                        <div class="bounty-icon">📊</div>
+                        <div class="bounty-info">
+                            <h4>Power BI Workshop</h4>
+                            <p>Data Analysis Workshop</p>
+                        </div>
+                        <div class="bounty-amount">★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">📜 MESSAGE IN A BOTTLE</span>
+                <h2 class="section-title">Send a <span class="gradient-text">Message</span></h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Drop a message in a bottle and it shall reach me across the seven seas!</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h4>Email</h4>
+                        <a href="mailto:yadavvishnu0082@gmail.com">yadavvishnu0082@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h4>Phone</h4>
+                        <a href="tel:+916300400799">+91 6300400799</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">💻</div>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/EraveniVishnu" target="_blank"
+                            rel="noopener">github.com/EraveniVishnu</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h4>Location</h4>
+                        <span>Narsapur, Telangana, India</span>
+                    </div>
+                </div>
+
+                <form class="contact-form animate-on-scroll" id="contactForm"
+                    action="https://formsubmit.co/yadavvishnu0082@gmail.com" method="POST">
+                    <!-- Formsubmit configuration -->
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name, Captain" required>
+                        <label for="name">Your Name</label>
+                        <span class="form-icon">🏴‍☠️</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label for="email">Email</label>
+                        <span class="form-icon">📧</span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message..."
+                            required></textarea>
+                        <label for="message">Message</label>
+                        <span class="form-icon">📜</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>🚀 Send Message in a Bottle</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-waves">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="rgba(255,200,50,0.1)"
+                    d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+                </path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="skull-icon">☠️</span>
+                    <span>VISHNU</span>
+                </div>
+                <p class="footer-text">
+                    "I'm gonna be the King of the Code Pirates!" 🏴‍☠️
+                </p>
+                <div class="footer-socials">
+                    <a href="https://github.com/EraveniVishnu" target="_blank" rel="noopener" class="social-link"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:yadavvishnu0082@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+916300400799" class="social-link" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                <p class="footer-copyright">
+                    © 2025 Eraveni Vishnu. All rights reserved. Built with ❤️ and pirate spirit.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
